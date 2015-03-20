@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://getbootstrap.com/examples/jumbotron/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Reinventing Business Cards World!">
+    <meta name="keywords" content="Business, Business card, reinventing">
+    <meta name="author" content="CardCoffer development team">
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--script src="./index1_files/ie-emulation-modes-warning.js"></script-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>Card Coffer Next Generation of Business Cards!</title>
+    <link rel="icon" href="img/tab-Icon.png">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+    <link rel = "stylesheet" href = "/demo/css/Alistyle.css">
+    <link rel="shortcut icon" href="/tab-Icon.png" type="image/png"/>
+    <script src="/demo/js/NewAli.js"></script>
+<style type="text/css">
+    .panel3d {
+        /*background: #ddd;*/
+        padding: 10px;
+        border-radius: 10px;
+        -webkit-perspective: 600px;
+        -moz-perspective: 600px;
+        perspective: 600px;
+    }
+    .panel3d .front {
+    float: none;
+position: absolute;;
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+         -moz-transform: rotateX(0deg) rotateY(0deg);
+                    transform: rotateX(0deg) rotateY(0deg);
+
+    -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+
+    -webkit-backface-visibility: hidden;
+         -moz-backface-visibility: hidden;
+                    backface-visibility: hidden;
+
+    /* -- transition is the magic sauce for animation -- */
+    -webkit-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+}
+.panel3d.flip .front {
+    z-index: 900;
+position: absolute;;
+    -webkit-transform: rotateY(180deg);
+         -moz-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+}
+
+.panel3d .back {
+    float: none;
+    z-index: 800;
+position: absolute;;
+    -webkit-transform: rotateY(-180deg);
+         -moz-transform: rotateY(-179deg); /* setting to 180 causes an unnatural-looking half-flip */
+                    transform: rotateY(-179deg);
+
+    -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+
+    -webkit-backface-visibility: hidden;
+         -moz-backface-visibility: hidden;
+                    backface-visibility: hidden;
+
+    /* -- transition is the magic sauce for animation -- */
+    -webkit-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+}
+
+.panel3d.flip .back {
+    z-index: 1000;
+
+    position: absolute;;
+    top:10px;
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+         -moz-transform: rotateX(0deg) rotateY(0deg);
+                    transform: rotateX(0deg) rotateY(0deg);
+
+}
+.panel3d .front, .panel3d .back {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    background: #ddd url('/144x144.png') no-repeat 360px 180px;
+}
+#player header{
+  display: none !important;
+}
+</style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img id = "name_logo" src = "/logo-text.png" alt = "CardCoffer logo" height = "80" width = "285"></img>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" style="padding-top:25px">
+          <form style="margin-top=20px" class="navbar-form navbar-right" role="form" method="post" action="{{=$url}}/login">
+            <div class="form-group">
+              <input type="text" placeholder="Email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" name="passwd" class="form-control">
+            </div>
+            <input type="submit" class="btn btn-success" value="Sign in" />
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+    <div class="row">
+      <div class="container">
+            <div class="col-md-6">
+                <h3 style="font-family: 'Roboto', sans-serif;font-size:32px">Reinventing Business Cards World!</h1>
+                <div class="video">
+                    <iframe src="//player.vimeo.com/video/113160815?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <p style="color:lightslategray"><br/>The Most Awesome Way to Manage & Share Your Business Contacts</p>
+                </div>
+                <p><br /><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a>
+                <a href="https://play.google.com/store/apps/details?id=com.cardcoffer" target="_blank">
+                <img alt="Get it on Google Play" src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+            </a></p>
+            </div>
+            <div class="col-md-6">
+                </br>
+                </br>
+                <div class="panel3d"> 
+                    <div class="front">
+                        </br>
+                        <h3 style="font-family: 'Roboto', sans-serif;font-size:32px">Invitation Request</h3>
+                        <p style="text-align:justify;color:lightslategray;margin=10px,10px,10px,10px">Currently, we only issue business cards for people with invitation. If you want to receive an invitation, you have to enter email of your current company, university or the place that you have affiliation with ...</p>
+                        <p><br/><a class="btn btn-primary btn-success request_btn" href="#" id="" role="button">Request »</a></p>
+                    </div> 
+                    <div class="back" style="width: 100%" id="backinv">
+                      <center>
+                        Enter your email please.<br />
+                      <input id="email" type="email" class="form-control" placeholder="Email Address" />
+                        <br />
+                         <a class="btn btn-primary btn-success btn-large" id="request_btn" href="#" role="button">Let me in! »</a>
+                         <a class="btn btn-danger btn-large notrightnow" id="request_btn" href="#" role="button">Not right now!</a></p></center>
+                    </div> 
+                </div>
+            </br>
+            
+            </div>
+        
+      </div>
+    </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>CREATE</h2>
+          <p>Create a professional business card in a few minutes</p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>NFC</h2>
+          <p>Exchange instantly with any smart devices like smart phones, tablets, etc</p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>ORGANIZE</h2>
+          <p>Having your past business cards organized.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>TRADITION</h2>
+          <p>You can have a single plastic printed NFC based business card to respect to the tradition.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>ENVIRONMENT</h2>
+          <p>Save trees, Organize your business cards!</p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+       </div>
+        <!--div class="col-md-4">
+          <h2>ORGANIZE</h2>
+          <p>Having your past business cards organized.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div-->
+      </div>      
+      <hr>
+      <footer>
+        <div class = "language">
+        <ul>
+            <li><a>English</a></li>
+            <li><a>French</a></li>
+            <li><a>Spanish</a></li>
+            <li><a>Persian</a></li>
+        </ul>
+        </div>
+        <div class = "language">
+        <ul>
+            <li><a>Mobile</a></li>
+            <li><a>About</a></li>
+            <li><a>Help</a></li>
+            <li><a>Privacy</a></li>
+        </ul>
+        </div>      
+        <p>© CardCoffer 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/components/library/jquery/jquery.min.js?v=v1.2.3"></script>
+    <script src="assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3"></script>
+    <script type="text/javascript">
+    $(function () {
+        $(".request_btn, .notrightnow").click(function (event) {
+            event.preventDefault();
+            $(".panel3d").toggleClass('flip');
+        });
+        $("#request_btn").click(function () {
+          if ($("#email").val().trim().length == 0 || $("#email").val().trim().indexOf('@') == -1 || $("#email").val().trim().indexOf('.') == -1) return;
+          $.post('/req_inv', {e: $("#email").val()});
+          $("#backinv").slideUp('slow', function () {
+            $(this).html("<center><h1 class='success'>Ok!</h1><br /><p>Wait for the awsome!</p></center>").slideDown('slow');
+            $(".back").click(function () {
+            $(".panel3d").toggleClass('flip');   
+            })
+          })
+        })
+    })
+    </script>
+
+</body></html>

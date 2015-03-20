@@ -1,0 +1,223 @@
+{{
+    $pgname = 'newstack';
+}}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+    <title>Card Coffer New Stack</title>
+    <link rel="icon" type="image/png" href="/public/tab-Icon.png" />
+
+    
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    
+    <!-- 
+    **********************************************************
+    In development, use the LESS files and the less.js compiler
+    instead of the minified CSS loaded by default.
+    **********************************************************
+    <link rel="stylesheet/less" href="/assets/less/admin/module.admin.page.index.less" />
+    -->
+    
+        <!--[if lt IE 9]><link rel="stylesheet" href="/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+   <link rel="stylesheet" href="/assets/css/admin/module.admin.page.index.skin.black-and-white.css" />
+    <!-- <link rel="stylesheet" href="/assets/css/admin/module.admin.page.tables.min.css" /> -->
+    <!-- <link rel="stylesheet" href="/assets/css/admin/module.admin.page.ui.min.css" /> -->
+
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/assets/components/library/jquery/jquery.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/library/jquery/jquery-migrate.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/library/modernizr/modernizr.js?v=v1.2.3"></script>
+    <script src="/assets/components/plugins/less-js/less.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.2.3"></script>
+    <script src="/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.2.3"></script>
+    <script src="/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v1.2.3"></script>  
+    {{ include common }}
+</head>
+<body class="">
+{{ include nav }}
+{{ include sidebar }}
+
+
+
+<div id="content">
+    <div class="heading-buttons bg-white border-bottom innerAll">
+       <h1 class="content-heading padding-none pull-left">NEW STACK</h1>
+       <div class="clearfix"></div>
+    </div>
+
+
+    <div class="innerAll spacing-x2">
+        <div class="row">
+        <div id="alerts">
+{{
+if (alert) {
+    
+}}
+<div class="alert alert-{{=alert.class}}">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{=alert.title}}</strong> {{=alert.text}}
+</div>
+{{
+}
+}}
+</div>
+<form action="{{=$url}}/app/p_new_stack" enctype="multipart/form-data" class="form-horizontal margin-none" id="createStack" method="post" autocomplete="off">
+    <div class="widget widget-inverse">
+        <div class="widget-head">
+            <h4 class="heading">Create a Stack</h4>
+        </div>
+        <div class="widget-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="label">Stack label</label>
+                        <div class="col-md-8"><input class="form-control" id="label" name="label" type="text" value="Card Coffer Meetup" /></div>
+                    </div>
+                </div>
+                
+            </div>
+            <hr class="separator" />
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> Save</button>
+                <button type="button" class="btn btn-default"><i class="fa fa-times"></i> Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="widget widget-inverse">
+    <div class="widget-head">
+        <h4 class="heading">Your Stacks</h4>
+    </div>
+    <div class="widget-body">
+        <table class="table table-condensed" id="stacklist">
+            <thead>
+                <tr>
+                    <th class="center">No.</th>
+                    <th>Label</th>
+                    <th>Cards</th>
+                    <th>Date</th>
+                    <th class="text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{
+            var ind = 0;
+            for (var c in $user.stacks) {
+                var stack = $user.stacks[c];
+                ind++;
+            }}
+                <tr>
+                    <td class="center">{{=ind}}</td>
+                    <td><strong>{{=stack.label}}</strong>{{ if (stack.default) { }} <span style="color: red;" class="small">default</span>{{ } }}</td>
+                    <td>{{=stack.cards.length}}</td>
+                    <td>{{=stack.date}}</td>
+                    <td class="text-right">
+                        <div class="btn-group btn-group-xs">
+                        <a href="{{=$url}}/app/stack/{{=stack._id}}" class="btn btn-info"><i class="fa fa-eye"></i></a>
+                            <!-- <a href="{{=$url}}/app/sedit/{{=stack._id}}" class="btn btn-inverse"><i class="fa fa-pencil"></i></a> -->
+                            <a href="{{=$url}}/app/sdelete/{{=stack._id}}" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                {{
+                }
+                }}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+        </div>
+    </div>
+        
+    
+        
+</div>
+        
+<div class="clearfix"></div>
+        
+<div id="footer" class="hidden-print">
+    
+    <!--  Copyright Line -->
+    {{ include copyright }}
+    <!--  End Copyright Line -->
+
+</div>
+<!-- // Footer END -->
+        
+</div>
+<!-- // Main Container Fluid END -->
+    
+    
+
+    <!-- Global -->
+<script>
+    var basePath = '',
+        commonPath = '../assets/',
+        rootPath = '../',
+        DEV = false,
+        componentsPath = '../assets/components/';
+    
+    var primaryColor = '#cb4040',
+        dangerColor = '#b55151',
+        infoColor = '#466baf',
+        successColor = '#8baf46',
+        warningColor = '#ab7a4b',
+        inverseColor = '#45484d';
+    
+    var themerPrimaryColor = primaryColor;
+    var $url = '{{=$url}}';
+</script>
+    
+<script src="/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/breakpoints/breakpoints.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/animations.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.resize.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/plugins/jquery.flot.tooltip.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotcharts.common.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple-bars.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-chat/assets/js/widget-chat.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/lib/js/jquery.easy-pie-chart.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/custom/easy-pie.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-scrollable/assets/js/widget-scrollable.init.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/holder/holder.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.main.init.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.collapse.init.js?v=v1.2.3"></script>
+<script src="/assets/components/helpers/themer/assets/plugins/cookie/jquery.cookie.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/core.init.js?v=v1.2.3"></script>  
+<script src="../assets/components/modules/admin/forms/validator/assets/lib/jquery-validation/dist/jquery.validate.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/validator/assets/custom/form-validator.init.js?v=v1.2.3"></script>  
+<script src="/assets/components/plugins/form/jquery.form.js"></script>
+</body>
+</html>

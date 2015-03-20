@@ -1,0 +1,17 @@
+<div id="menu" class="hidden-print hidden-xs">
+<div class="sidebar sidebar-inverse">
+	<div class="user-profile media innerAll">
+		<a href="" class="pull-left"><img  style="width: 30px" src="{{= $gravatar($user._id) }}" alt="" class="img-circle"><!-- <span class="badge badge-primary">2</span> --></a>
+		<div class="media-body">
+			<a href="" class="strong">{{= $user.profile.displayName }}</a>
+			<!-- <p class="text-success"><i class="fa fa-fw fa-circle"></i> Online</p> -->
+		</div>
+		<!-- <ul>
+			<li class="active"><a href=""><i class="fa fa-fw fa-user"></i></a></li>
+			<li><a href=""><i class="fa fa-fw fa-envelope"></i></a></li>
+			<li><a href=""><i class="fa fa-fw fa-lock"></i></a></li>
+		</ul> -->
+	</div>
+	{{ include menu }}
+</div>
+</div>

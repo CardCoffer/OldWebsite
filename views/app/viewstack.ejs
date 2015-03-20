@@ -1,0 +1,234 @@
+{{
+	$pgname = 'stacks';
+}}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title>Card Coffer View Stack</title>
+    <link rel="icon" type="image/png" href="/public/tab-Icon.png" />
+
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+	
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	<link rel="stylesheet/less" href="/assets/less/admin/module.admin.page.index.less" />
+	-->
+	
+		<!--[if lt IE 9]><link rel="stylesheet" href="/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+	<link rel="stylesheet" href="/assets/css/admin/module.admin.page.index.skin.black-and-white.css" />
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+
+	<script src="/assets/components/library/jquery/jquery.min.js?v=v1.2.3"></script>
+<script src="/assets/components/library/jquery/jquery-migrate.min.js?v=v1.2.3"></script>
+<script src="/assets/components/library/modernizr/modernizr.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/less-js/less.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.2.3"></script>
+<script src="/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v1.2.3"></script>	
+{{ include common }}
+</head>
+<body class="">
+
+{{ include nav }}
+{{ include sidebar }}
+
+
+
+<div id="content">
+	<div class="heading-buttons bg-white border-bottom innerAll">
+	   <h1 class="content-heading padding-none pull-left">{{=stack.label}}</h1>
+	   <div class="clearfix"></div>
+	</div>
+
+
+	<div class="innerAll spacing-x2">	
+
+
+	<div class="row">
+		{{
+			stack.cards.forEach(function (card) {
+		}}
+		<div class="col-md-3 col-sm-6" id="card_{{=card._id}}">
+			<div class="panel-3d">
+				<div class="front">
+					<div class="widget text-center">
+						<div class="widget-body padding-none">
+							<div>
+								<div class="bg-info">
+									<img src="{{=$url}}/{{=card.img}}" class="img-responsive img-clean"/>
+									<p class="lead strong margin-none text-white" style="padding-top:2px;">{{=card.name}}</p>
+									<p class="lead" style="font-size:17px; padding-bottom:10px;">{{=card.description}}</p>
+								</div>
+								<div style="margin:2px; padding:2px;">
+									<button class="btn btn-info flipper"><i class="fa fa-eye"></i> View</button>
+									<a type="button" class="btn btn-inverse showstacks"><i class="icon-note-pad"></i> Move</a><br /><br />
+									<div tabindex="5000" class="stacklist" style="display: none;">
+										<table class="table table-condensed">
+											<tbody>
+											{{
+												$user.stacks.forEach(function (st) {
+											}}
+												<tr>
+													<td class="center">{{ if (stack._id == st._id) { }}<i style="color: red;" class="fa fa-fw fa-circle"></i>{{ } }}</td>
+													<td><a href="#" onclick="return moveToStack('{{=card._id}}','{{=st._id}}')">{{=st.label}}</a></td>
+													<td><strong>{{=st.cards.length}}</strong></td>
+												</tr>
+											{{
+												})
+											}}
+												
+											</tbody>
+											
+										</table>
+
+									</div>  
+									  
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="back">
+
+					<div class="widget widget-inverse">
+						<div class="widget-head">
+							<button class="btn btn-xs btn-default pull-right flipper"><i class="fa fa-times"></i></button>
+							<h4 class="heading">Note</h4>
+						</div>
+						<div class="widget-body padding-none">
+							
+							<div>
+								<div class="media innerAll">
+									<i class="fa fa-chat fa-2x pull-left disabled"></i>
+									<div class="media-body">
+										
+										<span href="" class="strong text-info">{{=card.name}}</span><br />
+										<em>{{=card.description}}</em><br />
+										<p class="lead" style="font-size: 11px;"><i class="fa fa-envelope fa-fw"></i> {{=card.email}}<br /><i class="fa fa-phone fa-fw"></i> {{=card.phone}}
+										{{ if (card.att) { }}<div class="label label-default"><a style="color: white;" class="text-info" href="{{=$url}}/{{=card.att}}"><i class="fa fa-paperclip"></i> Download attachment</a></div>{{ } }}</p>
+										<hr />
+										<p class="note">{{=card.note}}</p>
+										{{
+											var label = "Edit note";
+											if (card.note.length == 0) { 
+												label = "Write a note";
+											}
+										}}
+										<a href="#" class="btn btn-info btn-xs edit-note">{{=label}}</a>
+										<a href="#" class="btn btn-info btn-xs save-note" style="display:none;">Save</a>
+										<input type="hidden" class="cid" value="{{=card._id}}" />
+										<input type="hidden" class="sid" value="{{=stack._id}}" />
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		{{
+		});
+		}}
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+		
+	
+		
+</div>
+		
+<div class="clearfix"></div>
+		
+<div id="footer" class="hidden-print">
+	
+	<!--  Copyright Line -->
+	{{ include copyright }}
+	<!--  End Copyright Line -->
+
+</div>
+<!-- // Footer END -->
+		
+</div>
+<!-- // Main Container Fluid END -->
+	
+	
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		commonPath = '../assets/',
+		rootPath = '../',
+		DEV = false,
+		componentsPath = '../assets/components/';
+	
+	var primaryColor = '#cb4040',
+		dangerColor = '#b55151',
+		infoColor = '#466baf',
+		successColor = '#8baf46',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	var $url = '{{=$url}}';
+	</script>
+	
+	<script src="/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/breakpoints/breakpoints.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/animations.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.resize.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/plugins/jquery.flot.tooltip.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotcharts.common.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple-bars.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-chat/assets/js/widget-chat.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/lib/js/jquery.easy-pie-chart.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/custom/easy-pie.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-scrollable/assets/js/widget-scrollable.init.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/holder/holder.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.main.init.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.collapse.init.js?v=v1.2.3"></script>
+<script src="/assets/components/helpers/themer/assets/plugins/cookie/jquery.cookie.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/core.init.js?v=v1.2.3"></script>	
+<script src="/assets/components/modules/admin/forms/validator/assets/lib/jquery-validation/dist/jquery.validate.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/validator/assets/custom/form-validator.init.js?v=v1.2.3"></script>  
+<script src="/assets/components/plugins/form/jquery.form.js"></script>
+</body>
+</html>

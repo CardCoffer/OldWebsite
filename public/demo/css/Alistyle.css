@@ -1,0 +1,99 @@
+
+.log_menubar form{
+	float: right;
+	padding-top:5px;
+	padding-right:5px;
+	right:0px;
+    top:0px;
+	color: gainsboro;
+}
+.inviteRequest h2{
+    color:#fff;
+    font-size: 48px;
+    font-weight:bold;
+    font-family:'Shift', sans-serif;
+}
+.inviteRequest p{
+	color: #fff;
+	font-size:20px;
+}
+.language li{
+	display:inline;
+}
+#name_logo{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+footer{
+	/*background-color:whitesmoke;*/
+	text-align: center;
+}
+footer li{
+	display: inline;
+}
+/*.flip {
+  -webkit-perspective: 800;
+  -ms-perspective: 800;
+  -moz-perspective: 800;
+  -o-perspective: 800;
+   width: 400px;
+   height: 400px;
+   position: relative;
+   margin-left:10px;
+   margin-right:10px;
+}*/
+/*.flip .card.flipped {
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg);*/ /* IE 9 */
+ /* -moz-transform:rotatey(-180deg); *//* Firefox */
+  /*-webkit-transform:rotatey(-180deg); *//* Safari and Chrome */
+  /*-o-transform:rotatey(-180deg); *//* Opera */
+/*}*/
+/*.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 0.5s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.5s;
+  -o-transform-style: preserve-3d;
+  -o-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.flip .card .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  backface-visibility: hidden;*/ /* W3C */
+  /*-webkit-backface-visibility: hidden; *//* Safari & Chrome */
+  /*-moz-backface-visibility: hidden; *//* Firefox */
+ /* -ms-backface-visibility: hidden; *//* Internet Explorer */
+ /* -o-backface-visibility: hidden;*/ /* Opera */
+
+/*}
+.flip .card .front {
+  position: absolute;
+  z-index: 1;
+  background:whitesmoke;
+  color: rgba(0,0,0);
+  cursor: pointer;
+}
+.flip .card .back {
+    background: blue;
+    background: white;
+    color: black;
+    cursor: pointer;
+    
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg);*/ /* IE 9 */
+  /*-moz-transform:rotatey(-180deg);*//* Firefox */
+  /*-webkit-transform:rotatey(-180deg);*/ /* Safari and Chrome */
+ /* -o-transform:rotatey(-180deg);*/ /* Opera */
+
+/*} */
+

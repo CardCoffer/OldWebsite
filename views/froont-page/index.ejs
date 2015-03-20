@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--[if lt IE 9]>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                    <script type="text/javascript" src="vendor/bower/html5shiv/dist/html5shiv.js"></script>
+            <![endif]-->
+
+  <title>Card Coffer: The next generation of business cards!</title>
+  <link rel="icon" type="image/png" href="/public/tab-Icon.png" />
+  <link rel="stylesheet" href="/front/css/base.css">
+
+  <link rel="stylesheet" href="/front/css/style.css">
+  <style type="text/css">
+  #login_bar {
+    position: fixed;
+    height: 60px;
+    background-color: rgba(30, 30, 30, 0.6);
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+    text-align: right;
+    z-index: 9999999;
+
+  }
+  #login_bar input {
+    border: 1px rgba(0,0,0,0) solid;
+    padding: 6px;
+    margin: 2px;
+    border-radius: 6px;
+    font-family: Verdana;
+    font-size: 12px;
+
+  }
+  #login_bar input[type="submit"] {
+    background: #449d44;
+    color: white;
+  }
+  #login_bar input[type="submit"]:hover {
+    border: 1px white solid;
+    background: #009d00;
+    color: white;
+  }
+  .lnk {
+    color:gray;
+  }
+  .lnk:hover {
+    color:red;
+  }
+  #invform {
+    text-align: center;
+    margin-top:15px;
+    font-family: Verdana;
+    font-size: 18px;
+    
+  }
+  #invform input {
+    text-align: center;
+    margin:5px;
+    padding: 2px;
+    border: 1px solid gray;
+    border-radius: 7px;
+    width: 30%;
+    height: 40px;
+  }
+  .fr_hd1_button {
+    margin-top:10px !important;
+  }
+
+  .fr_container_14, .fr_container_15, .fr_container_16 {
+    /*min-height: 30em;*/
+    background-size: none;
+    background-position: bottom;;
+  }
+  </style>
+  <script type="text/javascript" src="/front/vendor/bower/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/front/js/backend/jquery-extends/live-patch.js"></script>
+
+  <script type="text/javascript">
+    var fonts = {
+      "Didact Gothic": {
+        "family": "Didact Gothic",
+        "source": "google",
+        "subsets": [
+          "cyrillic",
+          "cyrillic-ext",
+          "greek",
+          "greek-ext",
+          "latin",
+          "latin-ext"
+        ],
+        "variants": [
+          "regular"
+        ]
+      },
+      "Oxygen": {
+        "family": "Oxygen",
+        "source": "google",
+        "subsets": [
+          "latin",
+          "latin-ext"
+        ],
+        "variants": [
+          "300",
+          "700",
+          "regular"
+        ]
+      },
+      "europa": {
+        "css_name": "europa",
+        "family": "Europa",
+        "id": "myvg",
+        "source": "typekit",
+        "stack": "sans-serif",
+        "variants": [
+          "n3",
+          "i3",
+          "n4",
+          "i4",
+          "n7",
+          "i7"
+        ]
+      }
+    };
+  </script>
+
+  <script type="text/javascript" src="/front/vendor/js/webfont.js"></script>
+  <script type="text/javascript" src="/front/js/fontloader.js"></script>
+
+  <!-- Replace code below with your typekit kit's embed code -->
+  <script src="//use.typekit.net/csj0dnd.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <!-- End of typekit code -->
+
+  <script type="text/javascript">
+  $(function () {
+    var inv = false;
+    $("#fr_549b1845d5290527b7000119").click(function (e) {
+      e.preventDefault();
+
+      if (!inv) {
+        $("#invform").slideDown();
+        $(this).html("Request!")
+        inv = true;
+        return;
+      }
+
+      if ($("#email").val().trim().length == 0 || $("#email").val().trim().indexOf('@') == -1 || $("#email").val().trim().indexOf('.') == -1) return;
+      
+      $.post('/req_inv', {e: $("#email").val()});
+      $(this).hide();
+      $("#invform").slideUp('slow', function () {
+        $(this).html("<span style='color: white;'>Ok! wait for the awsome!</span>").slideDown('slow');
+      });
+
+      //$(this).unbind('click').html("Ok! wait for the awsome!");
+
+
+
+    })
+  });
+
+  </script>
+
+  <meta http-equiv="content-language" content="en">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div id="login_bar">
+    <form style="margin-top=20px" class="navbar-form navbar-right" role="form" method="post" action="{{=$url}}/login">
+        <input type="text" placeholder="Email" name="email" class="form-control">
+        <input type="password" placeholder="Password" name="passwd" class="form-control">
+      <input type="submit" class="btn btn-success" value="Sign in" />
+    </form>
+  </div>
+  <div class="b-content">
+    <div id="fr_541be26eceb9ab1774000025" class="fr-widget fr-container fr_vuneca ">
+      <div id="fr_5494d443d5290561fa000010" class="fr-widget fr-container fr_container_11 ">
+        <div id="fr_5494d248d52905294d000014" class="fr-widget fr-img fr_image_8 ">
+          <img src="/front/images/thumbnail/logo-text.png_848x238.png" />
+
+        </div><!--
+
+     --><div id="fr_5494d4afd5290561fa000014" class="fr-widget fr-container fr_text_block_center ">
+          <div id="fr_5494d4afd5290561fa000017" class="fr-widget fr-text fr-wf fr_paragraph_center ">
+            <div class="fr-text">
+              <i>"BUSINESS CARDS DON'T DIE, THEY EVOLVE!</i>”</div>
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_5494d811d5290561fa000030" class="fr-widget fr-container fr_container_12 ">
+          <div id="fr_5494d964d5290561fa00003f" class="fr-widget fr-grid fr_2_columns ">
+            <div id="fr_5494d86fd5290561fa000035" class="fr-widget fr-img fr_image_9 ">
+              <a target="_blank" href="https://play.google.com/store/apps/details?id=com.cardcoffer"><img src="/front/images/thumbnail/play-store.png_196x53.png" /></a>
+
+            </div><!--
+
+         --><div id="fr_5494d88dd5290561fa00003a" class="fr-widget fr-img fr_image_10 ">
+               <a target="_blank" href="https://play.google.com/store/apps/details?id=com.cardcoffer"><img src="/front/images/thumbnail/app-store.png_196x53.png" /></a>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div><!--
+
+   --><div id="fr_541be26eceb9ab1774000029" class="fr-widget fr-img fr_tivoju ">
+        <img src="/front/images/thumbnail/phone2-png-329x343.png_329x343.png" />
+
+      </div>
+
+
+    </div><!--
+
+ --><div id="fr_549af802d529052593000010" class="fr-widget fr-container fr_container_13 ">
+      <div id="fr_5494ddefd5290502e2000010" class="fr-widget fr-video fr-wf fr_vimeo_video fr_vimeo_video ">
+        <div class="fr-video-inner">
+          <iframe src="//player.vimeo.com/video/113160815?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+          
+        </div>
+      </div><!--
+
+   --><div id="fr_549af8f6d529052593000015" class="fr-widget fr-grid fr_v ">
+        <div id="fr_5494dd13d5290561fa00005c" class="fr-widget fr-grid fr_2_columns_2 ">
+          <div id="fr_541bdfbbceb9ab085b000025" class="fr-widget fr-container fr_hakobu ">
+            <div id="fr_541bdfbbceb9ab085b000031" class="fr-widget fr-text fr-wf fr_mipuki ">
+              <div class="fr-text">Students</div>
+
+            </div><!--
+
+         --><div id="fr_541bdf47ceb9ab206b000031" class="fr-widget fr-container fr_kegeli ">
+
+            </div><!--
+
+         --><div id="fr_541bdfbbceb9ab085b00002d" class="fr-widget fr-text fr-wf fr_hicoju ">
+              <div class="fr-text">
+                <ul>
+                  <li>Make your verified business card for free long life once.</li>
+                  <li>Have your live business card like <a href="http://harrypotter.wikia.com/wiki/Daily_Prophet" target="_blank">daily prophet</a> newspapers.</li>
+                  <li>Have your CV attached to it.</li>
+                  <li>Exchange your business card like a pro using our cloud technology.</li>
+                  <li>Organize &amp; keep your collected business cards forever.</li>
+                  <li>Import old generation business cards just by taking a photo of them.</li>
+                </ul>
+              </div>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b073cd5290525930000d7" class="fr-widget fr-container fr_container_15 ">
+            <div id="fr_549b073cd5290525930000da" class="fr-widget fr-container fr_text_block_center_5 ">
+              <div id="fr_549b073cd5290525930000e2" class="fr-widget fr-text fr-wf fr_header_center_4 ">
+                <div class="fr-text">Your Name!</div>
+
+              </div><!--
+
+           --><div id="fr_549b073cd5290525930000e0" class="fr-widget fr-text fr-wf fr_paragraph_center_11 ">
+                <div class="fr-text">Your email address!</div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_549b00b5d529052593000067" class="fr-widget fr-grid fr_2_columns_5 ">
+          <div id="fr_549b00b5d52905259300006c" class="fr-widget fr-container fr_text_block_nan_3 ">
+            <div id="fr_549b00b5d529052593000079" class="fr-widget fr-text fr-wf fr_tagline_2 ">
+              <div class="fr-text">Entrepreneurs</div>
+
+            </div><!--
+
+         --><div id="fr_549b00b5d529052593000077" class="fr-widget fr-container fr_line_2 ">
+
+            </div><!--
+
+         --><div id="fr_549b00b5d529052593000075" class="fr-widget fr-text fr-wf fr_small_text_2 ">
+              <div class="fr-text">
+                <ul>
+                  <li>Have a sync dynamic business card across your network long live.</li>
+                  <li>Have a live business card.</li>
+                  <li>Exchange your business card like a pro using our cloud technology.</li>
+                  <li>Organize and keep your collected business card forever.</li>
+                  <li>Write comments behind received cards.</li>
+                </ul>
+              </div>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b0755d5290525930000fd" class="fr-widget fr-container fr_container_16 ">
+            <div id="fr_549b0755d529052593000100" class="fr-widget fr-container fr_text_block_center_6 ">
+              <div id="fr_549b0755d529052593000108" class="fr-widget fr-text fr-wf fr_header_center_5 ">
+                <div class="fr-text">Your Company!</div>
+
+              </div><!--
+
+           --><div id="fr_549b0755d529052593000106" class="fr-widget fr-text fr-wf fr_paragraph_center_12 ">
+                <div class="fr-text">Your Website address</div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_549b024cd529052593000090" class="fr-widget fr-grid fr_2_columns_6 ">
+          <div id="fr_549b024cd529052593000095" class="fr-widget fr-container fr_text_block_nan_4 ">
+            <div id="fr_549b024cd5290525930000a2" class="fr-widget fr-text fr-wf fr_tagline_3 ">
+              <div class="fr-text">Business owners</div>
+
+            </div><!--
+
+         --><div id="fr_549b024cd5290525930000a0" class="fr-widget fr-container fr_line_3 ">
+
+            </div><!--
+
+         --><div id="fr_549b024cd52905259300009e" class="fr-widget fr-text fr-wf fr_small_text_3 ">
+              <div class="fr-text">
+                <ul>
+                  <li>Have a free personal business card that reflect your business with a dynamic changes of contact information across your customers</li>
+                  <li>Issue bulk verified business cards for your employees with 1% of usual costs</li>
+                  <li>Send bulk promotions to your customers through distributed business cards</li>
+                  <li>Get referral and distribute your business card through your customers</li>
+                </ul>
+              </div>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b038ad5290525930000b1" class="fr-widget fr-container fr_container_14 ">
+            <div id="fr_549b04b1d5290525930000b7" class="fr-widget fr-container fr_text_block_center_4 ">
+              <div id="fr_549b04b1d5290525930000bc" class="fr-widget fr-text fr-wf fr_header_center_3 ">
+                <div class="fr-text">Your Café!</div>
+
+              </div><!--
+
+           --><div id="fr_549b04b1d5290525930000ba" class="fr-widget fr-text fr-wf fr_paragraph_center_10 ">
+                <div class="fr-text">Your cafe address</div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div><!--
+
+ --><div id="fr_549b25c1d5290527b7000294" class="fr-widget fr-container fr_content_4 ">
+      <div id="fr_549b25c1d5290527b700029b" class="fr-widget fr-text fr-wf fr_cnt04_main_title fr_cnt04_main_title ">
+        <div class="fr-text">Features&nbsp;</div>
+
+      </div><!--
+
+   --><div id="fr_549b25c1d5290527b7000299" class="fr-widget fr-text fr-wf fr_h2_center_white fr_cnt04_paragraph ">
+        <div class="fr-text">Card Coffer: Next Generation of Business Cards</div>
+
+      </div><!--
+
+   --><div id="fr_549b25c1d5290527b7000297" class="fr-widget fr-grid fr_cnt04_3_column_grid ">
+        <div id="fr_549b25c1d5290527b70002a3" class="fr-widget fr-container fr_bf_feature_one ">
+          <div id="fr_549b2727d5290527b70002fe" class="fr-widget fr-img fr_image_12 ">
+            <img src="/front/images/thumbnail/nfc.png_449x598.png" />
+
+          </div><!--
+
+       --><div id="fr_549b25c1d5290527b70002d8" class="fr-widget fr-text fr-wf fr_h2_center_white fr_bf_sub_text_one ">
+            <div class="fr-text">NFC</div>
+
+          </div><!--
+
+       --><div id="fr_549b25c1d5290527b70002d6" class="fr-widget fr-text fr-wf fr_bf_paragraph_one ">
+            <div class="fr-text">Exchange business cards with Card Coffer's NFC technology&nbsp;<br /><a class="lnk" href="https://www.youtube.com/watch?v=8FVMOkt53f4" target="_blank">learn more</a></div>
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_549dcbccd529050cc2000010" class="fr-widget fr-container fr_bf_feature_three_2 ">
+          <div id="fr_549dcbccd529050cc2000017" class="fr-widget fr-img fr_image_14 ">
+            <img src="/front/images/thumbnail/bth_1.png_449x598.png" />
+
+          </div><!--
+
+       --><div id="fr_549dcbccd529050cc2000015" class="fr-widget fr-text fr-wf fr_h2_center_white fr_bf_sub_text_three_2 ">
+            <div class="fr-text">Bluetooth</div>
+
+          </div><!--
+
+       --><div id="fr_549dcbccd529050cc2000013" class="fr-widget fr-text fr-wf fr_bf_paragraph_three_2 ">
+            <div class="fr-text">Exchange business cards with Bluetooth
+              <span style="line-height: 1.4em;">&nbsp;technology</span><br /><a class="lnk" href="https://www.youtube.com/watch?v=e1p4c7Gf8d8" target="_blank">learn more</a>
+            </div>
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_549b25c1d5290527b70002a1" class="fr-widget fr-container fr_bf_feature_two ">
+          <div id="fr_549b2734d5290527b7000302" class="fr-widget fr-img fr_image_13 ">
+            <img src="/front/images/thumbnail/qr.png_449x598.png" />
+
+          </div><!--
+
+       --><div id="fr_549b25c1d5290527b70002c3" class="fr-widget fr-text fr-wf fr_h2_center_white fr_bf_sub_text_two ">
+            <div class="fr-text">QR-Code</div>
+
+          </div><!--
+
+       --><div id="fr_549b25c1d5290527b70002c1" class="fr-widget fr-text fr-wf fr_bf_paragraph_two ">
+            <div class="fr-text">Exchange business cards with Card Coffer's QR-codes<br /><a class="lnk" href="https://www.youtube.com/watch?v=CSIJGNBHjXw" target="_blank">learn more</a></div>
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_549b25c1d5290527b700029f" class="fr-widget fr-container fr_bf_feature_three ">
+          <div id="fr_549b26f8d5290527b70002fa" class="fr-widget fr-img fr_image_11 ">
+            <img src="/front/images/thumbnail/bc.png_449x598.png" />
+
+          </div><!--
+
+       --><div id="fr_549b25c1d5290527b70002ac" class="fr-widget fr-text fr-wf fr_h2_center_white fr_bf_sub_text_three ">
+            <div class="fr-text">Broadcaster</div>
+
+          </div><!--
+
+       --><div id="fr_549b25c1d5290527b70002aa" class="fr-widget fr-text fr-wf fr_bf_paragraph_three ">
+            <div class="fr-text">Develop &amp; distribute your business card with Card Coffer's &nbsp;broadcaster</div>
+
+          </div>
+
+
+        </div>
+
+
+      </div><!--
+
+   --><div id="fr_549dcf73d529050cc200003e" class="fr-widget fr-grid fr_2_columns_7 ">
+        <div id="fr_549dcf20d529050cc2000029" class="fr-widget fr-container fr_bf_feature_three_3 ">
+          <div id="fr_549dcf20d529050cc2000030" class="fr-widget fr-img fr_image_15 ">
+            <img src="/front/images/thumbnail/cloud_1.png_1875x1492.png" />
+
+          </div><!--
+
+       --><div id="fr_549dcf20d529050cc200002e" class="fr-widget fr-text fr-wf fr_h2_center_white fr_bf_sub_text_three_3 ">
+            <div class="fr-text">Cloud-Based</div>
+
+          </div><!--
+
+       --><div id="fr_549dcf20d529050cc200002c" class="fr-widget fr-text fr-wf fr_bf_paragraph_three_3 ">
+            <div class="fr-text">Update your business cards within your network using Card Coffer's Cloud technology<br /><a class="lnk" href="https://www.youtube.com/watch?v=RuT2bX6V_q8" target="_blank">learn more</a></div>
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_549dd661d529050cc2000058" class="fr-widget fr-container fr_bf_feature_three_4 ">
+          <div id="fr_549dd661d529050cc200005f" class="fr-widget fr-img fr_image_16 ">
+            <img src="/front/images/thumbnail/mag_1.png_1875x1492.png" />
+
+          </div><!--
+
+       --><div id="fr_549dd661d529050cc200005d" class="fr-widget fr-text fr-wf fr_h2_center_white fr_bf_sub_text_three_4 ">
+            <div class="fr-text">Organize</div>
+
+          </div><!--
+
+       --><div id="fr_549dd661d529050cc200005b" class="fr-widget fr-text fr-wf fr_bf_paragraph_three_4 ">
+            <div class="fr-text">Keep, organize and search your collected business cards</div>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div><!--
+
+ --><div id="fr_5494e372d5290502e200003c" class="fr-widget fr-container fr_our_customers ">
+      <div id="fr_549b0f18d5290527b700002d" class="fr-widget fr-container fr_gallery_05 ">
+        <div id="fr_549b0f18d5290527b7000034" class="fr-widget fr-text fr-wf fr_h1 fr_g05_header_center ">
+          <div class="fr-text">OUR CUSTOMERS</div>
+
+        </div><!--
+
+     --><div id="fr_549b0f18d5290527b7000032" class="fr-widget fr-text fr-wf fr_g05_paragraph_center fr_paragraph_text ">
+          <div class="fr-text">Students from these universities trusted us!</div>
+
+        </div><!--
+
+     --><div id="fr_549b0f18d5290527b7000030" class="fr-widget fr-grid fr_g05_4_column_grid ">
+          <div id="fr_549b0f18d5290527b700003f" class="fr-widget fr-container fr_g05_one ">
+            <div id="fr_549b0f18d5290527b7000098" class="fr-widget fr-img fr_g05_image ">
+              <a href="http://mcgill.ca" target="_blank"><img src="/front/images/thumbnail/274px-mcgill-university-coa-svg.png_274x347.png" /></a>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b0f18d5290527b700003d" class="fr-widget fr-container fr_g05_two ">
+            <div id="fr_549b0f18d5290527b700007f" class="fr-widget fr-img fr_g05_image_two ">
+              <a href="http://concordia.ca" target="_blank"><img src="/front/images/thumbnail/concordia-coa.png_241x289.png" /></a>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b0f18d5290527b700003b" class="fr-widget fr-container fr_g05_three ">
+            <div id="fr_549b0f18d5290527b7000066" class="fr-widget fr-img fr_g05_image_three ">
+              <a href="http://polymtl.ca" target="_blank"><img src="/front/images/thumbnail/450px-ecole-polytechnique-de-montreal-logo-svg.png_450x459.png" /></a>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b0f18d5290527b7000039" class="fr-widget fr-container fr_g05_four ">
+            <div id="fr_549b0f18d5290527b700004a" class="fr-widget fr-img fr_g05_image_four ">
+              <a href="http://ut.ac.ir" target="_blank"><img src="/front/images/thumbnail/433px-university-of-tehran-logo-svg.png_433x433.png" /></a>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b11ebd5290527b70000f2" class="fr-widget fr-container fr_g05_four_3 ">
+            <div id="fr_549b11ebd5290527b70000f5" class="fr-widget fr-img fr_g05_image_four_3 ">
+              <a href="http://aut.ac.ir" target="_blank"><img src="/front/images/thumbnail/akut-svg.png_1024x1241.png" /></a>
+
+            </div>
+
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_549b10d8d5290527b70000be" class="fr-widget fr-text fr-wf fr_paragraph_text fr_g05_paragraph_center_2 ">
+          <div class="fr-text">This companies &amp; businesses trusted us!</div>
+
+        </div><!--
+
+     --><div id="fr_549b10e7d5290527b70000c7" class="fr-widget fr-grid fr_g05_4_column_grid_2 ">
+          <div id="fr_549b10e7d5290527b70000d0" class="fr-widget fr-container fr_g05_one_2 ">
+            <div id="fr_549b10e7d5290527b70000ec" class="fr-widget fr-img fr_g05_image_2 ">
+              <a href="http://sharecode.io" target="_blank"><img src="/front/images/thumbnail/sclogo_1.png_1073x794.png" /></a>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b10e7d5290527b70000ce" class="fr-widget fr-container fr_g05_two_2 ">
+            <div id="fr_549b10e7d5290527b70000e5" class="fr-widget fr-img fr_g05_image_two_2 ">
+              <a href="#" target="_blank"><img src="/front/images/thumbnail/hug-the-customer.jpg_200x37.jpg" /></a>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b10e7d5290527b70000cc" class="fr-widget fr-container fr_g05_three_2 ">
+            <div id="fr_549b10e7d5290527b70000de" class="fr-widget fr-img fr_g05_image_three_2 ">
+              <a href="http://digitalbrainzone.com" target="_blank"><img src="/front/images/thumbnail/standard-logo_1.png_1091x827.png" /></a>
+
+            </div>
+
+
+          </div><!--
+
+       --><div id="fr_549b10e7d5290527b70000ca" class="fr-widget fr-container fr_g05_four_2 ">
+            <div id="fr_549b10e7d5290527b70000d7" class="fr-widget fr-img fr_g05_image_four_2 ">
+              <a href="http://aunja.com" target="_blank"><img src="/front/images/thumbnail/logo.png_3000x1386.png" /></a>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div><!--
+
+ --><div id="fr_549b1845d5290527b7000116" class="fr-widget fr-container fr_header_1 ">
+      <div id="fr_549b1845d5290527b700011d" class="fr-widget fr-text fr-wf fr_h1_main_center_white fr_hd1_main_title ">
+        <div class="fr-text">Be a part of evolution.</div>
+
+      </div><!--
+
+   --><div id="fr_549b1845d5290527b700011b" class="fr-widget fr-text fr-wf fr_paragraph_main_center_white fr_hd1_paragraph ">
+        <div class="fr-text">Sign up now and get
+          <b>$5</b> in early access credit!<br />Already joined? <a href="/views/login.ejs">Sign in &amp; invite friends.</a></div>
+
+      </div>
+
+      <div style="display:none;" id="invform"><input id="email" placeholder="Enter your email address!" type="text" /></div>
+
+   <a id="fr_549b1845d5290527b7000119" class="fr-widget fr-text fr-wf fr_hd1_button  fr-link" href="#" target="_blank">
+        <div class="fr-text">Sign Up</div>
+
+      </a><!--
+
+   --><div id="fr_541c01abceb9ab3c47000046" class="fr-widget fr-img fr_rujege ">
+        <img src="/front/images/thumbnail/phone4-png-329x343.png_329x343.png" />
+
+      </div>
+
+
+    </div><!--
+
+ --><div id="fr_541c1225ceb9ab3c470000a2" class="fr-widget fr-container fr_gepewo ">
+      <div id="fr_541c1225ceb9ab3c470000a6" class="fr-widget fr-grid fr_bemigi ">
+        <div id="fr_541c1225ceb9ab3c470000af" class="fr-widget fr-container fr_judeji ">
+          <div id="fr_541c1226ceb9ab3c470000df" class="fr-widget fr-text fr-wf fr_galasa ">
+            <div class="fr-text">Card Coffer</div>
+
+          </div><!--
+
+       --><div id="fr_541c1226ceb9ab3c470000da" class="fr-widget fr-text fr-wf fr_gigoho ">
+            <div class="fr-text">info@cardcoffer.com</div>
+
+          </div>
+
+
+        </div><!--
+
+     --><div id="fr_541c1225ceb9ab3c470000ab" class="fr-widget fr-container fr_cesiru ">
+          <div id="fr_541c1225ceb9ab3c470000ba" class="fr-widget fr-text fr-wf fr_lufece ">
+            <div class="fr-text">Follow Us!</div>
+
+          </div>
+
+
+        
+         <div style="float:right;" id="fr_541c1225ceb9ab3c470000bf" class="fr-widget fr-container fr_dililo ">
+              <a id="fr_541c1225ceb9ab3c470000cb" class="fr-widget fr-svg fr_jinoja fr_jinoja  fr-link fr-widget-hover-opacity-60" href="https://vimeo.com/cardcoffer" target="_blank">
+                <div class="fr-svg-inner">
+                  <?xml version="1.0" encoding="utf-8" ?>
+                  <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                    <g>
+                      <polygon points="17.3,23.8 23.9,20 17.4,16.1  " />
+                      <path d="M20.2,0C9.1-0.1,0.1,8.8,0,19.8S8.8,39.9,19.8,40S39.9,31.2,40,20.2C40.1,9.2,31.2,0.1,20.2,0z M30,23.7   c0,3.4-3.5,3.4-3.5,3.4L13.4,27c-3.4,0-3.4-3.5-3.4-3.5l0.1-7.2c0-3.4,3.5-3.4,3.5-3.4L26.6,13c3.4,0,3.4,3.5,3.4,3.5L30,23.7z" />
+                    </g>
+                  </svg>
+                </div>
+
+              </a>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+  <div class="fr-copyright-footer">
+    <div class="fr-widget fr-container">
+      <div class="fr-widget fr-text fr-wf fr-made-with-froont">
+        <a href="https://play.google.com/store/apps/details?id=com.cardcoffer">Mobile</a> / <a href="#">About</a> / <a href="#">Privacy &amp Policy</a> / <a href="#">R&amp;D</a>
+        <br />© Card Coffer 2015
+      </a>
+      </div>
+    </div>
+    <div class="fr-bottom-em-spacer"></div>
+  </div>
+  <div id="footer-assets">
+    <!--[if lt IE 9]>
+            <script type="text/javascript" src="vendor/bower/respond/respond.src.js"></script>
+            <script type="text/javascript" src="vendor/bower/raphael/raphael.js"></script>
+            <script type="text/javascript" src="vendor/bower/raphael-svg-import-classic/raphael-svg-import.js"></script>
+            <script type="text/javascript" src="js/raphaelize.js"></script>
+    <![endif]-->
+  </div>
+</body>
+
+</html>

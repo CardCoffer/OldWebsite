@@ -1,0 +1,64 @@
+body {
+    padding-top: 0px;
+}
+#content {
+    margin-left: 0px;
+}
+#landing-bg {
+    background: url(../images/landing-bg-blur.jpg);
+    background-size: cover;
+    position:absolute;
+	/*-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(10px);*/
+    height: 400px;
+    width: 100%;
+}
+
+#landing {
+	height: 400px;	
+	margin: 0px;
+}
+
+.transparent {
+	background: none;
+}
+
+#landing-jumb h1.white {
+	color: white !important;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 1);
+}
+#landing-jumb p {
+	color: black !important;
+		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+}
+
+.login {
+	margin-top: 95px;
+	margin-right: 15px;
+
+}
+#login-info {
+	margin:10px;
+
+}
+p.q-author {
+	font-weight: bold;
+}
+
+#landing-mid3 div.box-generic {
+	margin: 0px;
+}
+#landing-f {
+	background: #999;
+	height: 100px;
+	padding-bottom: -100px;
+	margin-bottom: -100px;
+}
+#landing-f h5 {
+	text-align: center;
+	margin: 40px auto;
+	color: white;
+}

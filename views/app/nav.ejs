@@ -1,0 +1,60 @@
+		<div class="navbar navbar-fixed-top navbar-primary main" role="navigation">
+    
+    <div class="navbar-header pull-left">
+        <div class="navbar-brand">
+            <div class="pull-left">
+                <a href="" class="toggle-button toggle-sidebar btn-navbar"><i class="fa fa-bars"></i></a>
+
+            </div>
+            
+            
+        </div>
+    </div>
+    <ul  class="nav navbar-nav navbar-left">
+        <li style="height: 100px;"><img style="margin-top: 10px; width: 285px;" src="/logo-text.png" /></li>
+        <li style="margin-left: 20px;"class=" hidden-xs">
+            <form class="navbar-form navbar-left " role="search">
+                <div class="input-group">
+                    <input style="margin-top:25px;" id="search_q" type="text" class="form-control" placeholder="Type in here..."/>
+                    <div class="input-group-btn">
+                        <button style="margin-top: 25px;" type="submit" class="btn btn-inverse"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </li>
+        
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        
+        <li style="height:100px;" class="dropdown">
+            <a style="height:100px;"  href="" class="dropdown-toggle user" data-toggle="dropdown"><div style="height:25px"></div> <img style="width: 50px" src="{{= $gravatar($user._id) }}" alt="" class="img-circle"/><span class="hidden-xs hidden-sm"> &nbsp; {{= $user.profile.displayName }} </span> <span class="caret"></span></a>
+            <ul class="dropdown-menu list pull-right ">
+                <li><a href="#">Setting <i class="fa fa-user pull-right"></i></a></li>
+                <li><a href="#">Report <i class="fa fa-pencil pull-right"></i></a></li>
+                <li><a href="#">Get Help <i class="fa fa-question-circle pull-right"></i></a></li>
+                <li><a href="{{=$url}}/app/logout">Log out <i class="fa fa-sign-out pull-right"></i></a></li>
+            </ul>
+        </li>
+    </ul>
+    
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var to = null;
+        var search = function () {
+            var term = $("#search_q").val();
+            $.post("{{=$url}}/app/search_api", {q: term}, function (result) {
+                console.log(result);
+            });
+
+        }
+        $("#search_q").keypress(function () {
+            if (to) clearTimeout(to);
+            to = setTimeout(search, 400);
+        });
+
+    });
+</script>
+
+

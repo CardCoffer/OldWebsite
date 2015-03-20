@@ -1,0 +1,131 @@
+{{
+	var $MENU_ACTIVE = function (name) {
+		if ($pgname == name) return " class=\"active\"";
+		return "";
+	}
+	var $MENU_ACTIVE_SM = function (names, cl) {
+		for (var i=0;i<names.length;i++) if ($pgname == names[i]) return " " + cl;
+		return "";
+	}
+}}
+<div class="sidebarMenuWrapper">
+	<ul class="list-unstyled">
+		<li{{-$MENU_ACTIVE("dashboard")}}>
+			<a href="{{=$url}}/app"><i class=" icon-projector-screen-line"></i><span>Dashboard</span></a>
+		</li>
+		<li{{-$MENU_ACTIVE("studio")}}>
+			<a href="{{=$url}}/app/studio"><i class=" icon-user-2"></i><span>My Cards</span></a>
+		</li>
+		<li>
+			
+		</li>
+		<li class="hasSubmenu{{-$MENU_ACTIVE_SM(['stacks','newstack'], 'active')}}">
+			<a data-target="#stacks_mn" data-toggle="collapse" href="#"><i class=" icon-user-1"></i><span>Stacks</span></a>
+			<ul class="collapse{{-$MENU_ACTIVE_SM(['stacks','newstack'], 'in')}}" id="stacks_mn">
+				<li{{-$MENU_ACTIVE("stacks")}}><a href="{{=$url}}/app/stacks"><i class="icon-ticket"></i><span>View Stacks</span></a></li>
+				<li{{-$MENU_ACTIVE("newstack")}}><a href="{{=$url}}/app/newstacks"><i class="icon-medical-symbol-fill"></i><span>Create New</span></a></li>
+			</ul>
+		</li>
+		{{
+		if (false) {
+		}}
+		<li><a href="profile_resume.html?lang=en"><i class="icon-user-1"></i><span>Profile / Resume</span></a></li>
+		<li class="hasSubmenu">
+			<a href="#" data-target="#support" data-toggle="collapse"><i class="icon-compose"></i><span>Support</span></a>
+			<ul class="collapse " id="support">
+				<li><a href="support_tickets.html?lang=en"><i class="icon-ticket"></i><span>Support Tickets</span></a></li>
+				<li><a href="support_forum_overview.html?lang=en"><i class="icon-bulleted-list"></i><span>Forum Overview</span></a></li>
+				<li><a href="support_forum_post.html?lang=en"><i class=" icon-paper-document-image"></i><span>Forum Post</span></a></li>
+				<li><a href="support_questions.html?lang=en"><i class=" fa fa-question-circle"></i><span>Q&amp;A Listing</span></a></li>
+				<li><a href="support_answers.html?lang=en"><i class=" icon-paper-document-image"></i><span>Q&amp;A Page </span></a></li>
+				<li><a href="support_knowledge.html?lang=en"><i class="  icon-medical-symbol-fill"></i><span>Knowledge Base </span></a></li>
+			</ul>
+		</li>
+		<li><a href="pricing_tables.html?lang=en"><i class="  icon-dollar"></i><span>Pricing Tables</span></a></li>
+		<li><a href="portfolio.html?lang=en"><i class=" icon-flip-camera-fill"></i><span>Filterable Gallery</span></a></li>
+		<li><a href="surveys_multiple.html?lang=en"><i class=" icon-comment-typing"></i><span>Survey</span></a></li>
+		<li><a href="events.html?lang=en"><i class="icon-time-clock"></i><span>Events</span></a></li>
+		<li><a href="contacts.html?lang=en"><i class="icon-group"></i><span>Contacts</span></a></li>
+		<li><a href="maps_google.html?lang=en"><i class="icon-map-location-fill-2"></i><span>Maps</span></a></li>
+		<li><a href="gallery.html?lang=en"><i class="icon-film-strip"></i><span>Media &amp; Carousels</span></a></li>
+
+		<li class="hasSubmenu">
+			<a href="#" data-target="#collapse-menu" data-toggle="collapse"><i class="icon-settings-wheel-fill"></i><span>Interface Elements</span></a>
+			<ul class="collapse" id="collapse-menu">
+			
+				<li><a href="ui.html?lang=en"><i class="icon-butterfly"></i><span>Buttons &amp; Icons</span></a></li>
+				<li><a href="tables.html?lang=en"><i class="icon-categories"></i><span>Tables</span></a></li>
+				<li><a href="typography.html?lang=en"><i class="icon-paper-document"></i><span>Typography</span></a></li>
+				<li><a href="grid.html?lang=en"><i class="icon-dial-pad"></i><span>Grid System</span></a></li>
+				<li><a href="notifications.html?lang=en"><i class="icon-signal"></i><span>Alerts &amp; Notifications</span></a></li>
+				<li><a href="modals.html?lang=en"><i class="icon-new-window"></i><span>Modals</span></a></li>
+				<li><a href="widgets.html?lang=en"><i class="icon-browser"></i><span>Widgets</span></a></li>
+				<li><a href="sliders.html?lang=en"><i class="icon-sliders"></i><span>Sliders</span></a></li>
+				<li><a href="timelines.html?lang=en"><i class="icon-manager"></i><span>Timelines</span></a></li>
+				<li><a href="tabs.html?lang=en"><i class="icon-folder-add"></i><span>Tabs</span></a></li>
+				<li><a href="charts.html?lang=en"><i class="icon-graph-up-1"></i><span>Charts</span></a></li>
+				<li><a href="calendar.html?lang=en"><i class="icon-calendar-1"></i><span>Calendar</span></a></li>
+				
+			</ul>
+		</li>
+
+		<li class="hasSubmenu">
+			<a href="#" data-target="#forms-menu" data-toggle="collapse"><i class="icon-compose"></i><span>Forms</span></a>
+			<ul class="collapse" id="forms-menu">
+				<li><a href="form_wizards.html?lang=en">Form Wizards</a></li>
+				<li><a href="form_elements.html?lang=en">Form Elements</a></li>
+				<li><a href="form_validator.html?lang=en">Form Validator</a></li>
+				<li><a href="file_managers.html?lang=en">File Managers</a></li>
+			</ul>
+		</li>
+		
+		<li class="hasSubmenu">
+			
+			<a href="#" data-target="#collapse-menu-pages" data-toggle="collapse"><i class="icon-note-pad"></i><span>Pages</span></a>
+			<ul class="collapse " id="collapse-menu-pages">
+			
+				<li><a href="email.html?lang=en"><i class=" icon-inbox-fill-1"></i><span>Inbox</span></a></li>
+				<li class="hasSubmenu">
+					<a href="#" data-target="#financial" data-toggle="collapse"><i class="icon-graph-up-1"></i><span>Financial</span></a>
+					<ul class="collapse" id="financial">
+						<li><a href="finances.html?lang=en">Finances</a></li>
+						<li><a href="invoice.html?lang=en">Invoice</a></li>
+						<li><a href="bookings.html?lang=en">Bookings</a></li>
+					</ul>
+				</li>
+				<li class="hasSubmenu">
+					<a href="#" data-target="#medical" data-toggle="collapse"><i class="icon-medical-symbol-fill"></i> Medical</a>
+					<ul class="collapse" id="medical">
+						<li><a href="medical_overview.html?lang=en">Overview</a></li>
+						<li><a href="medical_patients.html?lang=en">Patients</a></li>
+						<li><a href="medical_appointments.html?lang=en">Appointments</a></li>
+						<li><a href="medical_memos.html?lang=en">Memos</a></li>
+						<li><a href="medical_metrics.html?lang=en">Metrics</a></li>
+					</ul>
+				</li>
+				<li > <a href="social.html?lang=en"> <i class="icon-user-1"></i><span>Social</span></a></li>
+				
+				<li class="hasSubmenu">
+					<a href="#" data-target="#shop" data-toggle="collapse"><i class="icon-shopping-cart"></i>Online Shop</a>
+					<ul class="collapse " id="shop">
+						<li><a href="shop_edit_product.html?lang=en">Add product</a></li>
+						<li><a href="shop_products.html?lang=en">Products</a></li>
+					</ul>
+				</li>
+				<li class="hasSubmenu">
+					<a href="#" data-target="#account" data-toggle="collapse"><i class="icon-shopping-cart"></i>Account</a>
+					<ul class="collapse" id="account">
+							<li><a href="login.html?lang=en">Login</a></li>
+						<li><a href="signup.html?lang=en">Signup</a></li>
+						<li><a href="my_account.html?lang=en">Edit account</a></li>
+					</ul>
+				</li>
+				<li><a href="ratings.html?lang=en"><i class="icon-tv-star"></i><span>Ratings</span></a></li>
+				<li> <a href="error.html?lang=en"> <span>Error</span></a></li>
+			</ul>
+		</li>
+		{{
+		}
+		}}
+	</ul>
+</div>

@@ -1,0 +1,517 @@
+{{
+    $pgname = 'studio';
+}}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+    <title>Card Coffer My Cards</title>
+    <link rel="icon" type="image/png" href="/public/tab-Icon.png" />
+
+    
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    
+    <!-- 
+    **********************************************************
+    In development, use the LESS files and the less.js compiler
+    instead of the minified CSS loaded by default.
+    **********************************************************
+    <link rel="stylesheet/less" href="/assets/less/admin/module.admin.page.index.less" />
+    -->
+    
+        <!--[if lt IE 9]><link rel="stylesheet" href="/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+    <link rel="stylesheet" href="/assets/css/admin/module.admin.page.index.skin.black-and-white.css" />
+
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/assets/components/library/jquery/jquery.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/library/jquery/jquery-migrate.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/library/modernizr/modernizr.js?v=v1.2.3"></script>
+    <script src="/assets/components/plugins/less-js/less.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.2.3"></script>
+    <script src="/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.2.3"></script>
+    <script src="/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v1.2.3"></script>
+    <script src="/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v1.2.3"></script>  
+    {{ include common }}
+</head>
+<style type="text/css">
+    
+div.input-no-border label{
+    font-size:10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 1px lightgray solid;
+    width: 75%;
+    margin-left:0px;
+}
+div.input-no-border input{
+    border: none;
+    font-size: 15px;
+    margin-top:0px;
+    padding-top:0px;
+}
+.bold-form {
+    font-weight: bold;
+}
+</style>
+<body class="">
+
+{{ include nav }}
+{{ include sidebar }}
+
+
+
+
+
+<div id="content">
+    <div class="heading-buttons bg-white border-bottom innerAll">
+       <h1 class="content-heading padding-none pull-left">My Cards</h1>
+       <div class="clearfix"></div>
+    </div>
+
+
+    <div class="innerAll spacing-x2">
+        <div class="row">
+        <div id="alerts">
+{{
+if (alert) {
+    
+}}
+<div class="alert alert-{{=alert.class}}">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{=alert.title}}</strong> {{=alert.text}}
+</div>
+{{
+}
+}}
+</div>
+
+
+<div class="widget widget-inverse">
+    <div class="widget-head">
+        <h4 class="heading">My Cards</h4>
+    </div>
+    <div class="widget-body">
+
+
+<div class="col-md-3 col-sm-6" id="new_card">
+<form action="{{=$url}}/app/p_new_card" enctype="multipart/form-data" class="form-horizontal margin-none" id="new_card_form" method="post">
+    <div class="panel-3d">
+        <div class="front">
+            <div class="widget text-center">
+                <div class="widget-body padding-none">
+                    <div>
+
+
+                        <div class="bg-info">
+                            <!-- <p class="lead strong margin-none text-white" style="padding-top:2px;"> -->
+                            <input style="text-align: center;" class="form-control" id="name" name="name" type="text" value="{{=$user.profile.displayName}}" />
+                            <input style="text-align: center;" class="form-control" id="aff" name="aff" type="text" placeholder="Job Title" />
+                            <img src="{{=$url}}/images/plus.png" class="img-responsive img-clean" id="preview_pic" style="cursor: pointer;"/>
+                            <input class="form-control hidden" id="image" name="image" type="file" />
+                        </div>
+                        <div style="margin:0px; padding:0px;">
+                            
+                            <input style="text-align: center;" class="form-control" id="job_title" name="job_title" type="text" placeholder="Company Name" />
+                            <div class="btn-group btn-group-s" style="margin:10px;">
+                                <a href="#" class="btn btn-inverse flipper" id="view_back"><i class="fa fa-undo"></i></a>
+                                <a href="#" class="btn btn-info form_submit"><i class="fa fa-check"></i></a>
+                            </div>
+
+                            <input style="text-align: center;" class="form-control bold-form" id="label" name="label" type="text" placeholder="Card Label" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="back">
+            <div class="widget text-center">
+                <div class="widget-body padding-none">
+                    <div>
+
+
+                        <div class="bg-info">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="{{=$url}}/images/default.png" class="img-responsive img-clean" id="preview_thumb" style="margin-top:10px; margin-left: 2px;"/>
+                                </div>
+                                <div class="col-md-9" style="text-align: left;">
+                                    <p id="prev_name" class="lead strong margin-none text-white" style="padding-top:2px; padding-bottom: 0px; font-size:16px;"></p>
+                                    <p id="prev_aff" class="lead" style="font-size:14px; margin: 0px;"></p>
+                                    <p id="prev_job_title" class="lead" style="font-size:12px; padding-bottom:5px; margin-bottom: 5px;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin:0px; padding:0px;" class="input-no-border">
+                            <label for="phone">Phone</label>
+                            <input style="text-align: center;" class="form-control" id="phone" name="phone" type="text" placeholder="(514) 111 1111" />
+
+                            <label for="email">Email</label>
+                            <input style="text-align: center;" class="form-control" id="email" name="email" type="text" placeholder="Add Email" />
+
+                            <label for="address">Address</label>
+                            <input style="text-align: center;" class="form-control" id="address" name="address" type="text" placeholder="Add Address" />
+
+                            <a style="overflow: hidden; width: 75%; margin-top: 10px; margin-bottom: 20px;" href="#" class="btn btn-danger btn-sm" id="attach_cv_btn"><i class="fa fa-upload fa-fw"></i> CV</a> 
+                            <input class="form-control hidden" id="attachment" name="attachment" type="file" />
+                            <div class="clearfix"></div>
+
+                            <div class="btn-group btn-group-s" style="margin:10px;">
+                                <a href="#" class="btn btn-inverse flipper"><i class="fa fa-repeat"></i></a>
+                                <a href="#" class="btn btn-info form_submit"><i class="fa fa-check"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+    </form>
+</div>
+
+
+{{
+for (var c in $user.cards) {
+    var card = $user.cards[c];
+}}
+
+<div class="col-md-3 col-sm-6" id="card_{{=card._id}}">
+    <div class="panel-3d">
+        <div class="front">
+            <div class="widget text-center">
+                <div class="widget-body padding-none">
+                    <div>
+                        <div class="bg-info">
+                            <p class="lead strong margin-none text-white" style="padding-top:2px; padding-bottom: 0px">{{=card.name}}</p>
+                            <p class="lead" style="font-size:14px; padding-bottom:10px; margin-bottom: 0px;">{{=card.aff}}</p>
+                            <img src="{{=$url}}/{{=card.img}}" class="img-responsive img-clean"/>
+                            <p class="lead" style="font-size:14px; padding: 5px;">{{=card.job_title}}</p>
+                        </div>
+                        <div style="margin:2px; padding:10px;">
+                            
+                            <div class="btn-group btn-group-s ">
+                                <a href="#" class="btn btn-inverse flipper"><i class="fa fa-undo"></i></a>
+                                <!-- <a href="{{=$url}}/app/edit/{{=card._id}}" class="btn btn-info"><i class="fa fa-pencil"></i></a> -->
+                                <a href="{{=$url}}/app/delete/{{=card._id}}" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                            </div>
+                            <br /><br /><strong>{{=card.label}}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="back">
+            <div class="widget text-center">
+                <div class="widget-body padding-none">
+                    <div>
+
+
+                        <div class="bg-info">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="{{=$url}}/{{=card.img}}" class="img-responsive img-clean" id="preview_thumb" style="margin-top:10px; margin-left: 2px;"/>
+                                </div>
+                                <div class="col-md-9" style="text-align: left;">
+                                    <p id="" class="lead strong margin-none text-white" style="padding-top:2px; padding-bottom: 0px; font-size:16px;">{{=card.name}}</p>
+                                    <p id="" class="lead" style="font-size:14px; margin: 0px;">{{=card.job_title}}</p>
+                                    <p id="" class="lead" style="font-size:12px; padding-bottom:5px; margin-bottom: 5px;">{{=card.aff}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin:0px; padding:0px;" class="input-no-border">
+                            {{ if (card.phone.length>0) { }}
+                            <label for="">Phone</label><br />
+                            {{=card.phone}}
+                            {{ } }}
+                            {{ if (card.email.length>0) { }}
+                            <label for="">Email</label><br />
+                            {{=card.email}}
+                            {{ } }}
+                            
+                            {{ if (card.address.length>0) { }}
+                            <label for="">Address</label><br />
+                            {{=card.address}}
+                            {{ } }}
+                            {{ if (card.att) { }}                        
+                            <a style="overflow: hidden; width: 75%; margin-top: 10px; margin-bottom: 20px;" href="{{=$url}}/{{=card.att}}" class="btn btn-danger btn-sm" id=""><i class="fa fa-eye fa-fw"></i>View CV</a> 
+                            {{ } }}
+
+                            <div class="btn-group btn-group-s" style="margin-bottom:20px;">
+                                <a href="#" class="glyphicons-social google_plus"><i></i></a>
+                                <a href="#" class="glyphicons-social facebook"><i></i></a>
+                                <a href="#" class="glyphicons-social twitter"><i></i></a><br style="display: block;margin: 10px 0;line-height:22px;content: ' ';" />
+                                <a href="#" class="glyphicons-social e-mail"><i></i></a>
+                                <a href="#" class="glyphicons-social skype"><i></i></a>
+                                <a href="#" class="glyphicons-social instagram"><i></i></a>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="btn-group btn-group-s" style="margin:10px;">
+                                <a href="#" class="btn btn-inverse flipper"><i class="fa fa-repeat"></i></a>
+                                <a href="{{=$url}}/app/delete/{{=card._id}}" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{
+}
+}}
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+        </div>
+    </div>
+        
+    
+        
+</div>
+        
+<div class="clearfix"></div>
+        
+<div id="footer" class="hidden-print">
+    
+    <!--  Copyright Line -->
+    {{ include copyright }}
+    <!--  End Copyright Line -->
+
+</div>
+<!-- // Footer END -->
+        
+</div>
+<!-- // Main Container Fluid END -->
+    
+    
+
+    <!-- Global -->
+<script>
+    var basePath = '',
+        commonPath = '../assets/',
+        rootPath = '../',
+        DEV = false,
+        componentsPath = '../assets/components/';
+    
+    var primaryColor = '#cb4040',
+        dangerColor = '#b55151',
+        infoColor = '#466baf',
+        successColor = '#8baf46',
+        warningColor = '#ab7a4b',
+        inverseColor = '#45484d';
+    
+    var themerPrimaryColor = primaryColor;
+    var $url = '{{=$url}}';
+</script>
+    
+<script src="/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/breakpoints/breakpoints.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/animations.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.resize.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/plugins/jquery.flot.tooltip.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotcharts.common.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple-bars.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-chat/assets/js/widget-chat.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/lib/js/jquery.easy-pie-chart.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/custom/easy-pie.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-scrollable/assets/js/widget-scrollable.init.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/holder/holder.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.main.init.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.collapse.init.js?v=v1.2.3"></script>
+<script src="/assets/components/helpers/themer/assets/plugins/cookie/jquery.cookie.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/core.init.js?v=v1.2.3"></script>  
+<script src="/assets/components/modules/admin/forms/validator/assets/lib/jquery-validation/dist/jquery.validate.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/validator/assets/custom/form-validator.init.js?v=v1.2.3"></script>  
+<script src="/assets/components/plugins/form/jquery.form.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var clone = null;
+        var ready = function () {
+
+            function updatePreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        if (e.target.result.indexOf('data:image') != 0) {
+
+                            $('#preview_pic').attr('src', "{{=$url}}/images/default.png");
+                            alert("The file '" + input.files[0].name + "' is not an image! Try again!");
+                            return;
+                        }
+                        $('#preview_pic').attr('src', e.target.result);
+                        $('#preview_thumb').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#preview_pic").click(function () {
+                $("#image").click();
+            });
+            $("#image").change(function(){
+                updatePreview(this);
+            });
+            $("#view_back").click(function () {
+                $("#prev_name").text($("#name").val());
+                $("#prev_job_title").text($("#job_title").val());
+                $("#prev_aff").text($("#aff").val());
+            });
+
+            $("#attach_cv_btn").click(function (e) {
+                e.preventDefault();
+                $("#attachment").click();
+            });
+
+            $("#attachment").change(function () {
+                    if (this.files && this.files[0]) {
+                        $("#attach_cv_btn").text(this.files[0].name);
+                    }else {
+                        $("#attach_cv_btn").html('<i class="fa fa-upload fa-fw"></i> CV');
+                    }
+
+            });
+            $(".reset_card").click(function(e) {
+                e.preventDefault();
+                $("#new_card").slideUp(function () {
+                    $("#new_card_form").trigger("reset");
+                    $('#new_card_form').each(function(){
+                        this.reset();
+                    });
+                    $('#preview_pic').attr('src', "{{=$url}}/images/default.png");
+                    $('#preview_thumb').attr('src', "{{=$url}}/images/default.png");
+                    $("#attach_cv_btn").html('<i class="fa fa-upload fa-fw"></i> CV');
+                    $(this).slideDown();
+                });
+            });
+            $("#new_card_form").validate({
+                rules: {
+                    label: "required",
+                    name: {
+                        required: true,
+                        minlength: 3
+                    },
+                    job_title: {
+                        required: true,
+                        minlength: 3
+                    },
+                    aff: {
+                        required: true,
+                        minlength: 5
+                    },
+                    phone: {
+                        minlength: 6
+                    },
+                    email: {
+                        required: false,
+                        email: true
+                    }
+                },
+                messages: {
+                    label: "Label is needed so you can find this card easier",
+                    name: {
+                        required: "Please enter your name",
+                        minlength: "Your name must consist of at least 3 characters"
+                    },
+                    job_title: {
+                        required: "Please provide your job title",
+                        minlength: "Your job title must be at least 3 characters long"
+                    },
+                    aff: {
+                        required: "Please provide your affiliation",
+                        minlength: "Your affiliation must be at least 5 characters long"
+                    },
+                    phone: {
+                        minlength: "Please use a valid phone number",
+                    },
+                    email: "Please enter a valid email address"
+                }
+            });
+            
+            $(".form_submit").click(function (e) {
+                e.preventDefault();
+
+                $("#new_card_form").ajaxSubmit({                                                                                                                 
+                    error: function(a, b, c) {
+                        alert('err', a, b);
+                    },
+                    success: function(response) {
+                        if (response.error) {
+
+                        }
+                        // alert(response);
+                        if (response.error) return;
+                        $("div#alerts").hide(function () {
+                            $(this).html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>Good News!</strong> Your card has been created!</div>').slideDown('slow');
+                            window.location.replace("{{=$url}}/app/studio");
+                        });
+                    }
+                });
+               $("div#alerts").hide(function () {
+                            $(this).html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>Please wait</strong> while we are creating your card.</div>').slideDown('slow');
+                            // window.location.replace("{{=$url}}/app/studio");
+                        });
+
+
+            });
+        }
+        
+        ready();
+        clone = $("#new_card").clone();
+
+
+        var mx = -1;
+        $(".panel-3d").each(function () {
+            mx = Math.max(mx, $(this).height());
+        })
+        $(".panel-3d").each(function () {
+            $(this).css('height', mx + 'px');
+        });
+    })
+
+</script>
+</body>
+</html>

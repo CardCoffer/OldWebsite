@@ -1,0 +1,171 @@
+{{
+    $pgname = 'studio';
+}}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+    <title>Card Coffer: My Cards</title>
+   <link rel="icon" type="image/png" href="/public/tab-Icon.png" />
+    
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    
+    <!-- 
+    **********************************************************
+    In development, use the LESS files and the less.js compiler
+    instead of the minified CSS loaded by default.
+    **********************************************************
+    <link rel="stylesheet/less" href="/assets/less/admin/module.admin.page.index.less" />
+    -->
+    
+        <!--[if lt IE 9]><link rel="stylesheet" href="/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+    <link rel="stylesheet" href="/assets/css/admin/module.admin.page.index.skin.black-and-white.css" />
+    <link rel="stylesheet" href="/assets/css/admin/module.admin.page.profile_resume.min.css" />
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/assets/components/library/jquery/jquery.min.js?v=v1.2.3"></script>
+<script src="/assets/components/library/jquery/jquery-migrate.min.js?v=v1.2.3"></script>
+<script src="/assets/components/library/modernizr/modernizr.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/less-js/less.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.2.3"></script>
+<script src="/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v1.2.3"></script>  
+{{ include common }}
+</head>
+<body class="">
+{{ include nav }}
+{{ include sidebar }}
+
+
+
+
+
+<div id="content">
+    <div class="heading-buttons bg-white border-bottom innerAll">
+       <h1 class="content-heading padding-none pull-left">View Card</h1>
+       <div class="clearfix"></div>
+    </div>
+
+
+    <div class="innerAll spacing-x2">
+       
+
+
+
+        <div class="widget finances_summary widget-inverse">
+
+            <div class="row row-merge">
+                <div class="col-sm-12 col-md-3">
+                    <!-- Profile Photo -->
+                    <div class="border-bottom">
+                        <a href="">
+                            <img src="{{=$url}}/{{=card.img}}" class="img-responsive img-clean"/>
+                        </a>
+                    </div>
+                    <div class="innerAll inner-2x text-center">
+                        <p class="lead strong margin-none">{{=card.name}}</p>
+                        <p class="lead">{{=card.description}}</p>
+                    
+                    </div>
+                
+
+                            
+                </div> 
+                <!-- // END col -->
+                <div class="col-lg-9 col-md-9 col-sm-12">
+
+                    <div class="innerAll half border-bottom">
+                        <h4 class="pull-left innerT half margin-none">Confirmation</h4>        
+                        <div class="clearfix"></div>
+                    
+                    </div>
+                    <div class="innerAll ">
+                        <h1 class="center">Are you sure?</h1>
+                        <p class="center danger">This action can NOT be undone!</p>
+                        <a href="{{=$url}}/app/delete_c/{{=card._id}}" class="btn-block btn btn-primary">I Understand, Delete it.</a>
+                    </div>
+
+                </div> 
+            <!-- // END col -->
+
+            </div>      
+
+        </div>
+
+
+    </div> 
+</div>
+        
+<div class="clearfix"></div>
+        
+<div id="footer" class="hidden-print">
+    
+    <!--  Copyright Line -->
+    {{ include copyright }}
+    <!--  End Copyright Line -->
+
+</div>
+<!-- // Footer END -->
+        
+</div>
+<!-- // Main Container Fluid END -->
+    
+    
+
+    <!-- Global -->
+    <script>
+    var basePath = '',
+        commonPath = '../assets/',
+        rootPath = '../',
+        DEV = false,
+        componentsPath = '../assets/components/';
+    
+    var primaryColor = '#cb4040',
+        dangerColor = '#b55151',
+        infoColor = '#466baf',
+        successColor = '#8baf46',
+        warningColor = '#ab7a4b',
+        inverseColor = '#45484d';
+    
+    var themerPrimaryColor = primaryColor;
+    </script>
+    
+    <script src="/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/breakpoints/breakpoints.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/animations.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.resize.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/plugins/jquery.flot.tooltip.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotcharts.common.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple-bars.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-chat/assets/js/widget-chat.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/lib/js/jquery.easy-pie-chart.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/easy-pie/assets/custom/easy-pie.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/widgets/widget-scrollable/assets/js/widget-scrollable.init.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/holder/holder.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.main.init.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.collapse.init.js?v=v1.2.3"></script>
+<script src="/assets/components/helpers/themer/assets/plugins/cookie/jquery.cookie.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/core.init.js?v=v1.2.3"></script>    
+</body>
+</html>

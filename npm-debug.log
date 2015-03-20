@@ -1,0 +1,268 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'nodemailer', '-g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose cache add [ 'nodemailer', null ]
+5 verbose cache add name=undefined spec="nodemailer" args=["nodemailer",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'nodemailer',
+6 verbose parsed url   path: 'nodemailer',
+6 verbose parsed url   href: 'nodemailer' }
+7 silly lockFile 2e159dcb-nodemailer nodemailer
+8 verbose lock nodemailer /Users/amir/.npm/2e159dcb-nodemailer.lock
+9 silly lockFile 2e159dcb-nodemailer nodemailer
+10 silly lockFile 2e159dcb-nodemailer nodemailer
+11 verbose addNamed [ 'nodemailer', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile a9602281-nodemailer nodemailer@
+14 verbose lock nodemailer@ /Users/amir/.npm/a9602281-nodemailer.lock
+15 silly addNameRange { name: 'nodemailer', range: '*', hasData: false }
+16 verbose request where is /nodemailer
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id a18d25d85e84d616
+19 verbose url raw /nodemailer
+20 verbose url resolving [ 'https://registry.npmjs.org/', './nodemailer' ]
+21 verbose url resolved https://registry.npmjs.org/nodemailer
+22 verbose request where is https://registry.npmjs.org/nodemailer
+23 info trying registry request attempt 1 at 19:43:51
+24 verbose etag "5G7S4KNOVX050F6MLH46RGN6P"
+25 http GET https://registry.npmjs.org/nodemailer
+26 http 200 https://registry.npmjs.org/nodemailer
+27 silly registry.get cb [ 200,
+27 silly registry.get   { date: 'Sat, 20 Dec 2014 00:43:51 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     etag: '"1MW4MJIN2QDCE9AG7SJNQF6OB"',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     'content-length': '159237',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '49',
+27 silly registry.get     'x-served-by': 'cache-iad2133-IAD',
+27 silly registry.get     'x-cache': 'HIT',
+27 silly registry.get     'x-cache-hits': '1',
+27 silly registry.get     'x-timer': 'S1419036231.366912,VS0,VE1',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly addNameRange number 2 { name: 'nodemailer', range: '*', hasData: true }
+29 silly addNameRange versions [ 'nodemailer',
+29 silly addNameRange   [ '0.1.1',
+29 silly addNameRange     '0.1.2',
+29 silly addNameRange     '0.1.3',
+29 silly addNameRange     '0.1.4',
+29 silly addNameRange     '0.1.5',
+29 silly addNameRange     '0.1.6',
+29 silly addNameRange     '0.1.7',
+29 silly addNameRange     '0.1.8',
+29 silly addNameRange     '0.1.9',
+29 silly addNameRange     '0.1.10',
+29 silly addNameRange     '0.1.11',
+29 silly addNameRange     '0.1.12',
+29 silly addNameRange     '0.1.13',
+29 silly addNameRange     '0.1.14',
+29 silly addNameRange     '0.1.15',
+29 silly addNameRange     '0.1.16',
+29 silly addNameRange     '0.1.17',
+29 silly addNameRange     '0.1.18',
+29 silly addNameRange     '0.1.19',
+29 silly addNameRange     '0.1.20',
+29 silly addNameRange     '0.1.21',
+29 silly addNameRange     '0.1.22',
+29 silly addNameRange     '0.1.23',
+29 silly addNameRange     '0.1.24',
+29 silly addNameRange     '0.2.0',
+29 silly addNameRange     '0.2.1',
+29 silly addNameRange     '0.2.2',
+29 silly addNameRange     '0.2.3',
+29 silly addNameRange     '0.2.4',
+29 silly addNameRange     '0.3.0',
+29 silly addNameRange     '0.3.1',
+29 silly addNameRange     '0.3.2',
+29 silly addNameRange     '0.3.3',
+29 silly addNameRange     '0.3.4',
+29 silly addNameRange     '0.3.5',
+29 silly addNameRange     '0.3.6',
+29 silly addNameRange     '0.3.7',
+29 silly addNameRange     '0.3.8',
+29 silly addNameRange     '0.3.9',
+29 silly addNameRange     '0.3.10',
+29 silly addNameRange     '0.3.11',
+29 silly addNameRange     '0.3.12',
+29 silly addNameRange     '0.3.13',
+29 silly addNameRange     '0.3.14',
+29 silly addNameRange     '0.3.15',
+29 silly addNameRange     '0.3.16',
+29 silly addNameRange     '0.3.17',
+29 silly addNameRange     '0.3.18',
+29 silly addNameRange     '0.3.19',
+29 silly addNameRange     '0.3.20',
+29 silly addNameRange     '0.3.21',
+29 silly addNameRange     '0.3.22',
+29 silly addNameRange     '0.3.23',
+29 silly addNameRange     '0.3.24',
+29 silly addNameRange     '0.3.25',
+29 silly addNameRange     '0.3.26',
+29 silly addNameRange     '0.3.27',
+29 silly addNameRange     '0.3.28',
+29 silly addNameRange     '0.3.29',
+29 silly addNameRange     '0.3.30',
+29 silly addNameRange     '0.3.31',
+29 silly addNameRange     '0.3.32',
+29 silly addNameRange     '0.3.33',
+29 silly addNameRange     '0.3.34',
+29 silly addNameRange     '0.3.35',
+29 silly addNameRange     '0.3.37',
+29 silly addNameRange     '0.3.38',
+29 silly addNameRange     '0.3.39',
+29 silly addNameRange     '0.3.40',
+29 silly addNameRange     '0.3.41',
+29 silly addNameRange     '0.3.42',
+29 silly addNameRange     '0.3.43',
+29 silly addNameRange     '0.3.44',
+29 silly addNameRange     '0.4.0',
+29 silly addNameRange     '0.4.1',
+29 silly addNameRange     '0.4.2',
+29 silly addNameRange     '0.4.3',
+29 silly addNameRange     '0.4.4',
+29 silly addNameRange     '0.5.0',
+29 silly addNameRange     '0.5.1',
+29 silly addNameRange     '0.5.2',
+29 silly addNameRange     '0.5.3',
+29 silly addNameRange     '0.5.4',
+29 silly addNameRange     '0.5.5',
+29 silly addNameRange     '0.5.6',
+29 silly addNameRange     '0.5.7',
+29 silly addNameRange     '0.5.8',
+29 silly addNameRange     '0.5.9',
+29 silly addNameRange     '0.5.10',
+29 silly addNameRange     '0.5.11',
+29 silly addNameRange     '0.5.12',
+29 silly addNameRange     '0.5.13',
+29 silly addNameRange     '0.5.14',
+29 silly addNameRange     '0.5.15',
+29 silly addNameRange     '0.6.0',
+29 silly addNameRange     '0.6.1',
+29 silly addNameRange     '0.6.2',
+29 silly addNameRange     '0.6.3',
+29 silly addNameRange     '0.6.4',
+29 silly addNameRange     '0.6.5',
+29 silly addNameRange     '0.7.0',
+29 silly addNameRange     '0.7.1',
+29 silly addNameRange     '1.0.0-rc.1',
+29 silly addNameRange     '1.0.0',
+29 silly addNameRange     '1.0.1',
+29 silly addNameRange     '1.0.2',
+29 silly addNameRange     '1.0.3',
+29 silly addNameRange     '1.0.4',
+29 silly addNameRange     '1.1.0',
+29 silly addNameRange     '1.1.1',
+29 silly addNameRange     '1.1.2',
+29 silly addNameRange     '1.2.0',
+29 silly addNameRange     '1.2.1',
+29 silly addNameRange     '1.2.2',
+29 silly addNameRange     '1.3.0' ] ]
+30 verbose addNamed [ 'nodemailer', '1.3.0' ]
+31 verbose addNamed [ '1.3.0', '1.3.0' ]
+32 silly lockFile a85db291-nodemailer-1-3-0 nodemailer@1.3.0
+33 verbose lock nodemailer@1.3.0 /Users/amir/.npm/a85db291-nodemailer-1-3-0.lock
+34 silly lockFile 8c84ec23--nodemailer-nodemailer-1-3-0-tgz https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz
+35 verbose lock https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz /Users/amir/.npm/8c84ec23--nodemailer-nodemailer-1-3-0-tgz.lock
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz',
+36 verbose addRemoteTarball   'a6e4c507b2f776a03d46e9be8d40b5be916f290a' ]
+37 info retry fetch attempt 1 at 19:43:51
+38 verbose fetch to= /var/folders/78/91yq5brs2l3_8w0yhygb3cn80000gn/T/npm-24234-gyWxfGX0/registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz
+39 http GET https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz
+40 http 200 https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz
+41 silly lockFile 8c84ec23--nodemailer-nodemailer-1-3-0-tgz https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz
+42 silly lockFile 8c84ec23--nodemailer-nodemailer-1-3-0-tgz https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz
+43 silly lockFile a85db291-nodemailer-1-3-0 nodemailer@1.3.0
+44 silly lockFile a85db291-nodemailer-1-3-0 nodemailer@1.3.0
+45 silly lockFile a9602281-nodemailer nodemailer@
+46 silly lockFile a9602281-nodemailer nodemailer@
+47 silly resolved [ { name: 'nodemailer',
+47 silly resolved     version: '1.3.0',
+47 silly resolved     description: 'Easy as cake e-mail sending from your Node.js applications',
+47 silly resolved     main: 'src/nodemailer.js',
+47 silly resolved     scripts: { test: 'grunt' },
+47 silly resolved     repository: { type: 'git', url: 'git://github.com/andris9/Nodemailer.git' },
+47 silly resolved     keywords: [ 'e-mail', 'mime', 'email', 'mail', 'sendmail', 'ses', 'smtp' ],
+47 silly resolved     author: { name: 'Andris Reinman' },
+47 silly resolved     license: 'MIT',
+47 silly resolved     bugs: { url: 'https://github.com/andris9/Nodemailer/issues' },
+47 silly resolved     homepage: 'http://www.nodemailer.com',
+47 silly resolved     devDependencies:
+47 silly resolved      { chai: '~1.8.1',
+47 silly resolved        grunt: '~0.4.1',
+47 silly resolved        'grunt-contrib-jshint': '~0.8.0',
+47 silly resolved        'grunt-mocha-test': '~0.10.0',
+47 silly resolved        'nodemailer-dkim': '^0.1.3',
+47 silly resolved        'nodemailer-markdown': '^0.1.1',
+47 silly resolved        'nodemailer-stub-transport': '^0.1.3',
+47 silly resolved        simplesmtp: '^0.3.32',
+47 silly resolved        sinon: '^1.9.0' },
+47 silly resolved     dependencies:
+47 silly resolved      { buildmail: '^1.2.0',
+47 silly resolved        hyperquest: '^0.3.0',
+47 silly resolved        libmime: '^0.1.5',
+47 silly resolved        'nodemailer-direct-transport': '^1.0.0',
+47 silly resolved        'nodemailer-smtp-transport': '^0.1.12' },
+47 silly resolved     engines: { node: '>=0.10.0' },
+47 silly resolved     gitHead: '3a112502a4be68b40886a06bcc299377d36ed594',
+47 silly resolved     _id: 'nodemailer@1.3.0',
+47 silly resolved     _shasum: 'a6e4c507b2f776a03d46e9be8d40b5be916f290a',
+47 silly resolved     _from: 'nodemailer@',
+47 silly resolved     _npmVersion: '1.4.23',
+47 silly resolved     _npmUser: { name: 'andris', email: 'andris@node.ee' },
+47 silly resolved     maintainers: [ [Object] ],
+47 silly resolved     dist:
+47 silly resolved      { shasum: 'a6e4c507b2f776a03d46e9be8d40b5be916f290a',
+47 silly resolved        tarball: 'http://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz' },
+47 silly resolved     directories: {},
+47 silly resolved     _resolved: 'https://registry.npmjs.org/nodemailer/-/nodemailer-1.3.0.tgz' } ]
+48 info install nodemailer@1.3.0 into /usr/local/lib
+49 info installOne nodemailer@1.3.0
+50 verbose lib/node_modules/nodemailer unbuild
+51 verbose tar unpack /Users/amir/.npm/nodemailer/1.3.0/package.tgz
+52 silly lockFile d4f6e3f4-ocal-lib-node-modules-nodemailer tar:///usr/local/lib/node_modules/nodemailer
+53 verbose lock tar:///usr/local/lib/node_modules/nodemailer /Users/amir/.npm/d4f6e3f4-ocal-lib-node-modules-nodemailer.lock
+54 silly lockFile bef5863b-npm-nodemailer-1-3-0-package-tgz tar:///Users/amir/.npm/nodemailer/1.3.0/package.tgz
+55 verbose lock tar:///Users/amir/.npm/nodemailer/1.3.0/package.tgz /Users/amir/.npm/bef5863b-npm-nodemailer-1-3-0-package-tgz.lock
+56 silly gunzTarPerm modes [ '755', '644' ]
+57 error Error: EACCES, mkdir '/usr/local/lib/node_modules/nodemailer'
+57 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/nodemailer']
+57 error   errno: 3,
+57 error   code: 'EACCES',
+57 error   path: '/usr/local/lib/node_modules/nodemailer',
+57 error   fstream_type: 'Directory',
+57 error   fstream_path: '/usr/local/lib/node_modules/nodemailer',
+57 error   fstream_class: 'DirWriter',
+57 error   fstream_stack:
+57 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+57 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+57 error      'Object.oncomplete (fs.js:107:15)' ] }
+58 error Please try running this command again as root/Administrator.
+59 error System Darwin 13.2.0
+60 error command "node" "/usr/local/bin/npm" "install" "nodemailer" "-g"
+61 error cwd /Users/amir/Projects/bb
+62 error node -v v0.10.32
+63 error npm -v 1.4.28
+64 error path /usr/local/lib/node_modules/nodemailer
+65 error fstream_path /usr/local/lib/node_modules/nodemailer
+66 error fstream_type Directory
+67 error fstream_class DirWriter
+68 error code EACCES
+69 error errno 3
+70 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/nodemailer'
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+71 error fstream_stack Object.oncomplete (fs.js:107:15)
+72 verbose exit [ 3, true ]
